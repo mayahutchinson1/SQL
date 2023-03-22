@@ -1,0 +1,28 @@
+--Create a grocery store database
+
+CREATE TABLE clothing (id INTEGER PRIMARY KEY, name TEXT, category TEXT, size TEXT, price INTEGER);
+
+INSERT INTO clothing VALUES (1, "shirt", "tops", "small", 15.00);
+INSERT INTO clothing VALUES (2, "shorts", "bottoms", "large", 10.00);
+INSERT INTO clothing VALUES (3, "tank top", "tops", "small", 12.00);
+INSERT INTO clothing VALUES (4, "bra", "intimates", "small", 20.00);
+INSERT INTO clothing VALUES (5, "underwear", "intimates", "medium", 5.00);
+INSERT INTO clothing VALUES (6, "T-Shirt", "tops", "large", 12.00);
+INSERT INTO clothing VALUES (7, "jeans", "bottoms", "medium", 48.00);
+INSERT INTO clothing VALUES (8, "slacks", "bottoms", "small", 29.00);
+INSERT INTO clothing VALUES (9, "skirt", "bottoms", "large", 19.00);
+INSERT INTO clothing VALUES (10, "long sleeve", "tops", "large", 20.00);
+INSERT INTO clothing VALUES (11, "jeans", "bottoms", "large", 50.00);
+INSERT INTO clothing VALUES (12, "shorts", "bottoms", "small", 13.00);
+INSERT INTO clothing VALUES (13, "bra", "intimates", "large", 25.00);
+INSERT INTO clothing VALUES (14, "jacket", "tops", "medium", 36.00);
+INSERT INTO clothing VALUES (15, "sweatshirt", "tops", "large", 45.00);
+
+--display the database ordered by price, price over $20
+SELECT * FROM clothing WHERE price > 20 ORDER BY price;
+
+--display the database by average price of items in tops category
+SELECT AVG(price) "tops" FROM clothing;
+
+--display 5 least expensive items
+SELECT * FROM clothing ORDER BY price LIMIT 5;
