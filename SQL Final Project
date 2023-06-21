@@ -11,7 +11,7 @@ FROM chinook.customers
 WHERE country = "Brazil";
 
 
---Find the Invoices of customers who are from Brazil. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
+--Find the Invoices of customers who are from Brazil. 
 SELECT cust.FirstName, cust.LastName, inv.InvoiceId, inv.BillingCountry, inv.InvoiceDate
 FROM chinook.invoices as inv 
 
@@ -32,7 +32,7 @@ SELECT distinct BillingCountry
 FROM chinook.invoices;
 
 
---Provide a query that shows the invoices associated with each sales agent. The resulting table should include the Sales Agent's full name.
+--Query that shows the invoices associated with each sales agent. The resulting table should include the Sales Agent's full name.
 SELECT employees.FirstName, employees.LastName, invoices.InvoiceID
 FROM chinook.employees  
 
@@ -64,7 +64,7 @@ FROM chinook.invoices
 WHERE invoicedate BETWEEN '2009-01-01' AND '2009-12-31';
 
 
---Write a query that includes the purchased track name with each invoice line ID.
+--Query that includes the purchased track name with each invoice line ID.
 SELECT tracks.name, tracks.trackid, invoice_items.InvoiceLineId
 FROM chinook.tracks
 
@@ -72,7 +72,7 @@ JOIN chinook.invoice_items
   ON tracks.TrackId = invoice_items.TrackId;
 
 
---Write a query that includes the purchased track name AND artist name with each invoice line ID.
+--Query that includes the purchased track name AND artist name with each invoice line ID.
 SELECT tracks.name as track, artists.name as artist, invoice_items.InvoiceLineId
 FROM chinook.invoice_items
 
@@ -84,7 +84,7 @@ LEFT JOIN chinook.artists
   ON albums.artistid = artists.artistid;
 
 
---Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre.
+--Query that shows all the Tracks, and include the Album name, Media type, and Genre.
 SELECT tracks.name as tracks, albums.title as album, media_types.Name as media, genres.Name as genre
 FROM chinook.albums
 
@@ -96,7 +96,7 @@ JOIN chinook.genres
   ON genres.GenreId=tracks.GenreId;
 
 
---Show the total sales made by each sales agent.
+--Total sales made by each sales agent.
 SELECT emp.firstname, emp.lastname, SUM(inv.total) as 'Total Sales'
 FROM chinook.employees emp
 
